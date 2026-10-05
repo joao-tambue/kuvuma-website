@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use 'tokens';
+
+// Usage: @include mq('md') { ... }
+@mixin mq($name) {
+  @media (max-width: map.get(tokens.$breakpoints, $name)) {
+    @content;
+  }
+}

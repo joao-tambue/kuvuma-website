@@ -1,0 +1,12 @@
+// Design tokens shared across the app.
+// Partial (leading underscore) so it is never emitted on its own.
+// Imported by name thanks to the `loadPaths` entry in vite.config.ts.
+
+$breakpoints: (
+  'md': 1024px,
+) !default;
+
+$content-width: 1126px !default;
+
+$font-sans: system-ui, 'Segoe UI', Roboto, sans-serif !default;
+$font-mono: ui-monospace, Consolas, monospace !default;
