@@ -1,0 +1,478 @@
+@use 'mixins' as *;
+@use 'tokens';
+
+// Spacing and sizes mirror the Figma section (node 2036:5) on the 1440 frame.
+// Decoration offsets are relative to the section's top-left corner.
+
+.overview {
+  position: relative;
+  overflow-x: clip;
+}
+
+.overview-canvas {
+  position: relative;
+  max-width: tokens.$content-width;
+  margin: 0 auto;
+  padding: 104px 16px 215px;
+
+  @include mq('md') {
+    padding: 64px 16px 120px;
+  }
+}
+
+// ---- Decoration -----------------------------------------------------------
+
+.overview-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  img {
+    position: absolute;
+    max-width: none;
+  }
+}
+
+// The glow SVGs include their blur area, so they extend past the ellipse.
+.overview-glow-left {
+  left: -255px;
+  top: 283px;
+  width: 845px;
+  height: 845px;
+}
+
+.overview-glow-right {
+  left: calc(50% - 95.3px);
+  top: 483.7px;
+  width: 1057.58px;
+  height: 1127.58px;
+}
+
+// Mirrored horizontally in the design.
+.overview-curve {
+  left: -184.24px;
+  top: 1200.52px;
+  width: 1133.61px;
+  height: 513.26px;
+  transform: scaleX(-1);
+
+  @include mq('md') {
+    display: none;
+  }
+}
+
+// ---- Shared text styles ---------------------------------------------------
+
+.overview-outline {
+  @include outline-text(92.633px);
+  opacity: 0.2;
+
+  @include mq('md') {
+    font-size: 48px;
+  }
+}
+
+.overview-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.overview-kicker {
+  @include kicker;
+}
+
+.overview-title {
+  @include display-title;
+
+  &-about {
+    width: 800px;
+    max-width: 100%;
+    color: var(--white);
+  }
+
+  &-product {
+    line-height: 0.869;
+    white-space: nowrap;
+  }
+
+  &-why {
+    width: 538px;
+    max-width: 100%;
+    line-height: 1.47;
+  }
+
+  @include mq('md') {
+    &-product {
+      white-space: normal;
+      line-height: 1.1;
+    }
+  }
+}
+
+.overview-accent {
+  color: var(--primary);
+}
+
+.overview-text {
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: -0.75px;
+  color: var(--text-muted);
+
+  @include mq('md') {
+    font-size: 17px;
+    line-height: 30px;
+  }
+}
+
+.overview-cta {
+  @include shape-button;
+  font-size: 20px;
+  color: var(--white);
+
+  img {
+    left: 0;
+    width: 100%;
+  }
+}
+
+// ---- About ----------------------------------------------------------------
+
+.overview-about {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 68px;
+  scroll-margin-top: 24px;
+
+  @include mq('md') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+}
+
+.overview-about-image {
+  flex-shrink: 0;
+  width: 380.137px;
+  height: 406px;
+  margin-left: 0.61px;
+  object-fit: cover;
+
+  @include mq('md') {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    margin: 0;
+  }
+}
+
+.overview-about-body {
+  position: relative;
+  width: 827px;
+  padding: 53px 0 0 7px;
+
+  .overview-outline {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  @include mq('md') {
+    width: 100%;
+    padding: 32px 0 0;
+  }
+}
+
+.overview-about-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  width: 820px;
+  max-width: 100%;
+}
+
+// ---- Product --------------------------------------------------------------
+
+.overview-product {
+  position: relative;
+  width: 1242px;
+  max-width: 100%;
+  margin: 134px auto 0;
+
+  > .overview-outline {
+    position: absolute;
+    top: -66px;
+    left: 0;
+  }
+
+  @include mq('md') {
+    margin-top: 120px;
+
+    > .overview-outline {
+      top: -40px;
+    }
+  }
+}
+
+.overview-product-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 94px;
+
+  .overview-heading {
+    flex-shrink: 0;
+    width: 528px;
+  }
+
+  @include mq('md') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    .overview-heading {
+      width: auto;
+    }
+  }
+}
+
+.overview-text-product {
+  width: 618px;
+  max-width: 100%;
+  letter-spacing: normal;
+}
+
+.overview-card {
+  position: relative;
+  min-height: 436px;
+  margin-top: 82px;
+
+  @include mq('md') {
+    min-height: 0;
+    margin-top: 48px;
+    border-radius: 20px;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(95px);
+  }
+}
+
+.overview-card-shape {
+  position: absolute;
+  top: 0;
+  left: 0.34%;
+  width: 99.42%;
+  height: 100%;
+  max-width: none;
+
+  @include mq('md') {
+    display: none;
+  }
+}
+
+.overview-card-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 37.15px;
+  width: 1052px;
+  max-width: 100%;
+  margin-left: 104px;
+  padding-top: 38px;
+
+  @include mq('md') {
+    width: auto;
+    margin: 0;
+    padding: 32px 20px;
+  }
+}
+
+.overview-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 63.55px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include mq('md') {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+}
+
+.overview-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5.87px;
+
+  h3 {
+    margin: 0;
+    font-size: 19.554px;
+    font-weight: 700;
+    line-height: 39.108px;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+
+  p {
+    // The design's smallest gap above the button; the rest comes from margin-top: auto.
+    margin-bottom: 17.6px;
+    font-size: 15.643px;
+    line-height: 1.72;
+    color: var(--text);
+  }
+}
+
+.overview-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 145.677px;
+  margin-top: auto;
+  padding: 7.822px;
+  border: 0.978px solid rgba(tokens.$color-orange, 0.2);
+  border-radius: 3.911px;
+  background: var(--gradient-glass);
+  backdrop-filter: blur(93.17px);
+  font: 600 12.028px/normal var(--font-button);
+  color: var(--white);
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: rgba(tokens.$color-orange, 0.5);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+}
+
+.overview-divider {
+  width: 100%;
+  height: 0.978px;
+  max-width: none;
+}
+
+.overview-stats {
+  display: flex;
+  align-items: center;
+  margin: 0;
+
+  @include mq('md') {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+}
+
+.overview-stat-group {
+  display: flex;
+  align-items: center;
+  gap: 86.04px;
+
+  & + & {
+    margin-left: 86.04px;
+  }
+
+  &:first-child .overview-stat {
+    width: 182.83px;
+  }
+
+  @include mq('md') {
+    justify-content: center;
+
+    & + & {
+      margin-left: 0;
+    }
+
+    .overview-stat,
+    &:first-child .overview-stat {
+      width: auto;
+    }
+  }
+}
+
+// The exported line is horizontal; it is rotated to stand upright.
+.overview-stat-divider {
+  width: 106.569px;
+  height: 0.978px;
+  max-width: none;
+  margin: 0 -53.28px;
+  transform: rotate(90deg);
+
+  @include mq('md') {
+    display: none;
+  }
+}
+
+.overview-stat {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 12.71px;
+  width: 204.34px;
+  text-align: center;
+
+  dd {
+    @include gradient-text(var(--gradient-stats));
+    margin: 0;
+    font: 400 39.108px/0.869 var(--font-display);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  dt {
+    font-size: 15.643px;
+    font-weight: 500;
+    line-height: 31.286px;
+    letter-spacing: 0.978px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--text-muted);
+  }
+}
+
+// ---- Why Kuvuma -----------------------------------------------------------
+
+.overview-why {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 58px;
+
+  @include mq('md') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 80px;
+  }
+}
+
+.overview-heading-why {
+  flex-shrink: 0;
+  width: 483px;
+
+  @include mq('md') {
+    width: auto;
+  }
+}
+
+.overview-why-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  width: 706px;
+  max-width: 100%;
+}

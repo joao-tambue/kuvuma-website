@@ -23,26 +23,26 @@ const navLinks = [
 export function Hero() {
   return (
     <section className="hero">
-      <div className="hero__canvas">
-        <div className="hero__decor" aria-hidden="true">
-          <img className="hero__grid" src={grid} alt="" />
-          <img className="hero__glow hero__glow--right" src={glowRight} alt="" />
-          <img className="hero__glow hero__glow--left" src={glowLeft} alt="" />
-          <div className="hero__noise" />
-          <img className="hero__line hero__line--left" src={lineLeft} alt="" />
-          <img className="hero__line hero__line--right" src={lineRight} alt="" />
-          <img className="hero__line hero__line--top-left" src={lineTopLeft} alt="" />
-          <img className="hero__nav-frame" src={navFrame} alt="" />
-          <img className="hero__line hero__line--top-right" src={lineTopRight} alt="" />
-          <img className="hero__line hero__line--bottom" src={lineBottom} alt="" />
+      <div className="hero-canvas">
+        <div className="hero-decor" aria-hidden="true">
+          <img className="hero-grid" src={grid} alt="" />
+          <img className="hero-glow-right" src={glowRight} alt="" />
+          <img className="hero-glow-left" src={glowLeft} alt="" />
+          <div className="hero-noise" />
+          <img className="hero-line hero-line-left" src={lineLeft} alt="" />
+          <img className="hero-line hero-line-right" src={lineRight} alt="" />
+          <img className="hero-line hero-line-top-left" src={lineTopLeft} alt="" />
+          <img className="hero-nav-frame" src={navFrame} alt="" />
+          <img className="hero-line hero-line-top-right" src={lineTopRight} alt="" />
+          <img className="hero-line hero-line-bottom" src={lineBottom} alt="" />
         </div>
 
-        <header className="hero__header">
-          <Link to="/" className="hero__logo">
+        <header className="hero-header">
+          <Link to="/" className="hero-logo">
             Kuvuma Green
           </Link>
 
-          <nav className="hero__nav" aria-label="Principal">
+          <nav className="hero-nav" aria-label="Principal">
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -56,31 +56,31 @@ export function Hero() {
 
             <button
               type="button"
-              className="hero__lang"
+              className="hero-lang"
               aria-label="Idioma: Português (Angola)"
             >
-              <img className="hero__flag" src={flagAo} alt="" width="32" height="24" />
-              <img className="hero__chevron" src={arrowDown} alt="" width="24" height="24" />
+              <img className="hero-flag" src={flagAo} alt="" width="32" height="24" />
+              <img className="hero-chevron" src={arrowDown} alt="" width="24" height="24" />
             </button>
           </nav>
 
-          <a href="#contact" className="hero__cta hero__cta--primary">
+          <a href="#contact" className="hero-cta hero-cta-primary">
             <img src={btnPrimary} alt="" />
             <span>Get in Touch</span>
           </a>
         </header>
 
-        <div className="hero__content">
-          <h1 className="hero__title">
+        <div className="hero-content">
+          <h1 className="hero-title">
             <span>Smart</span>
-            <span className="hero__title-accent">Tech for</span>
+            <span className="hero-title-accent">Tech for</span>
             <span>Tomorrow</span>
           </h1>
-          <p className="hero__text">
+          <p className="hero-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <a href="#about" className="hero__cta hero__cta--ghost">
+          <a href="#about" className="hero-cta hero-cta-ghost">
             <img src={btnGhost} alt="" />
             <span>Discover More</span>
           </a>

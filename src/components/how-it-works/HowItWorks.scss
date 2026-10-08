@@ -1,0 +1,179 @@
+@use 'mixins' as *;
+@use 'tokens';
+
+// Spacing mirrors the Figma group (node 58:36) on the 1440 frame.
+
+.how-it-works {
+  position: relative;
+  overflow-x: clip;
+  scroll-margin-top: 24px;
+}
+
+.how-it-works-canvas {
+  max-width: tokens.$content-width;
+  margin: 0 auto;
+  padding: 165px 16px 115px;
+
+  @include mq('md') {
+    padding: 96px 16px 80px;
+  }
+}
+
+.how-it-works-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 1242px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.how-it-works-kicker {
+  @include kicker;
+}
+
+.how-it-works-title {
+  @include display-title;
+  line-height: 1.47;
+}
+
+.how-it-works-accent {
+  color: var(--primary);
+}
+
+.how-it-works-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+  width: 1134.523px;
+  max-width: 100%;
+  // The step column sits 143px from the frame edge, not centred.
+  margin: 155px 0 0 max(0px, calc(50% - 577px));
+  padding: 0;
+  list-style: none;
+
+  @include mq('md') {
+    gap: 120px;
+    margin: 120px 0 0;
+  }
+}
+
+.how-it-works-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 47px;
+
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  @include mq('md') {
+    &,
+    &:nth-child(even) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+    }
+  }
+}
+
+.how-it-works-number {
+  @include outline-text(190.247px, 1.5px);
+  position: absolute;
+
+  .how-it-works-step:nth-child(1) & {
+    left: 1088px;
+    top: -134px;
+  }
+
+  .how-it-works-step:nth-child(2) & {
+    left: -161px;
+    top: -116px;
+  }
+
+  .how-it-works-step:nth-child(3) & {
+    left: 1007px;
+    top: -119px;
+  }
+
+  @include mq('md') {
+    font-size: 80px;
+
+    .how-it-works-step:nth-child(n) & {
+      left: auto;
+      right: 0;
+      top: -104px;
+    }
+  }
+}
+
+.how-it-works-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  flex-shrink: 0;
+  width: 558px;
+  max-width: 100%;
+
+  .how-it-works-step:first-child & {
+    gap: 33.955px;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 22.132px;
+    font-weight: 700;
+    line-height: 44.264px;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+
+  p {
+    font-size: 22.637px;
+    line-height: 45.274px;
+    letter-spacing: -0.849px;
+    color: var(--text-muted);
+  }
+
+  @include mq('md') {
+    width: 100%;
+
+    p {
+      font-size: 17px;
+      line-height: 30px;
+      letter-spacing: normal;
+    }
+  }
+}
+
+.how-it-works-cta {
+  @include shape-button;
+  font-size: 20px;
+  color: var(--white);
+
+  img {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.how-it-works-image {
+  position: relative;
+  flex-shrink: 0;
+  width: 528.073px;
+  height: 564px;
+  margin-left: 0.85px;
+  object-fit: cover;
+
+  @include mq('md') {
+    width: 100%;
+    max-width: 528px;
+    height: auto;
+    margin: 0;
+  }
+}

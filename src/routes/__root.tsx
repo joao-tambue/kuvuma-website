@@ -1,4 +1,5 @@
 import { Link, Outlet, createRootRoute } from '@tanstack/react-router'
+import { Footer } from '../components/footer/Footer'
 import '../styles/index.scss'
 import './__root.scss'
 
@@ -8,7 +9,12 @@ export const Route = createRootRoute({
 })
 
 function RootLayout() {
-  return <Outlet />
+  return (
+    <>
+      <Outlet />
+      <Footer />
+    </>
+  )
 }
 
 function NotFound() {

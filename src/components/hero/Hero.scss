@@ -1,14 +1,12 @@
 @use 'mixins' as *;
 @use 'tokens';
 
-// Positions mirror the Figma frame (1440 × 835), origin at its top-left.
-
 .hero {
   position: relative;
   overflow-x: clip;
 }
 
-.hero__canvas {
+.hero-canvas {
   position: relative;
   width: 100%;
   max-width: tokens.$content-width;
@@ -20,9 +18,7 @@
   }
 }
 
-// ---- Decoration -----------------------------------------------------------
-
-.hero__decor {
+.hero-decor {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -33,29 +29,28 @@
   }
 }
 
-.hero__grid {
+.hero-grid {
   left: 40px;
   top: 70.5px;
   width: calc(100% - 80px);
   height: 677.35px;
 }
 
-// The glow SVGs include their blur area, so they sit 190px outside the ellipse.
-.hero__glow--right {
+.hero-glow-right {
   left: calc(50% - 94px);
   top: -114px;
   width: 1178px;
   height: 1139px;
 }
 
-.hero__glow--left {
+.hero-glow-left {
   left: -231px;
   top: -240px;
   width: 845px;
   height: 845px;
 }
 
-.hero__noise {
+.hero-noise {
   position: absolute;
   inset: 0 0 auto;
   height: 835px;
@@ -68,39 +63,39 @@
   }
 }
 
-.hero__line {
+.hero-line {
   height: 1px;
 
-  &--top-left {
+  &-top-left {
     left: 29px;
     top: 21px;
     width: calc(50% - 390px);
   }
 
-  &--top-right {
+  &-top-right {
     left: calc(50% + 361px);
     top: 21px;
     width: calc(50% - 390px);
   }
 
-  &--left,
-  &--right {
+  &-left,
+  &-right {
     top: 23px;
     transform-origin: 0 0;
     transform: rotate(90deg);
   }
 
-  &--left {
+  &-left {
     left: 30px;
     width: 810px;
   }
 
-  &--right {
+  &-right {
     left: calc(100% - 28px);
     width: 809px;
   }
 
-  &--bottom {
+  &-bottom {
     left: 31px;
     top: 834px;
     width: calc(100% - 62px);
@@ -111,7 +106,7 @@
   }
 }
 
-.hero__nav-frame {
+.hero-nav-frame {
   left: calc(50% - 360px);
   top: 21.74px;
   width: 720.866px;
@@ -122,9 +117,7 @@
   }
 }
 
-// ---- Header ---------------------------------------------------------------
-
-.hero__header {
+.hero-header {
   position: absolute;
   inset: 0 0 auto;
   display: grid;
@@ -142,7 +135,7 @@
   }
 }
 
-.hero__logo {
+.hero-logo {
   justify-self: start;
   margin: 28px 0 0 80px;
   font: 26px/normal var(--font-logo);
@@ -156,7 +149,7 @@
   }
 }
 
-.hero__nav {
+.hero-nav {
   position: relative;
   margin-top: 32px;
 
@@ -200,7 +193,7 @@
   }
 }
 
-.hero__lang {
+.hero-lang {
   position: absolute;
   top: -12px;
   left: calc(100% + 11px);
@@ -223,51 +216,22 @@
   }
 }
 
-.hero__flag {
+.hero-flag {
   width: 32px;
   height: 24px;
   mask: url('../../assets/hero/flag-mask.svg') no-repeat 0 0 / 32px 24px;
 }
 
-// The Figma icon is a left chevron rotated to point down.
-.hero__chevron {
+.hero-chevron {
   width: 24.5px;
   height: 24.5px;
   transform: rotate(-90deg);
 }
 
-// ---- Buttons --------------------------------------------------------------
+.hero-cta {
+  @include shape-button;
 
-.hero__cta {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 317px;
-  max-width: 100%;
-  height: 43px;
-  font-family: var(--font-button);
-  font-weight: 600;
-  line-height: normal;
-  text-decoration: none;
-  white-space: nowrap;
-
-  img {
-    position: absolute;
-    top: 0;
-    height: 100%;
-  }
-
-  span {
-    position: relative;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 4px;
-  }
-
-  &--primary {
+  &-primary {
     justify-self: end;
     margin: 33px 43px 0 0;
     font-size: 20px;
@@ -286,7 +250,7 @@
     }
   }
 
-  &--ghost {
+  &-ghost {
     font-size: 24px;
     color: var(--primary);
 
@@ -296,15 +260,9 @@
       width: 98.72%;
     }
   }
-
-  &:hover img {
-    filter: brightness(1.15);
-  }
 }
 
-// ---- Content --------------------------------------------------------------
-
-.hero__content {
+.hero-content {
   position: absolute;
   left: 63px;
   top: 231px;
@@ -322,7 +280,7 @@
   }
 }
 
-.hero__title {
+.hero-title {
   font: 400 100.78px/0.98 var(--font-display);
   text-transform: uppercase;
   color: var(--white);
@@ -336,11 +294,11 @@
   }
 }
 
-.hero__title-accent {
+.hero-title-accent {
   color: var(--primary);
 }
 
-.hero__text {
+.hero-text {
   width: 630px;
   max-width: 100%;
   font-size: 20px;
