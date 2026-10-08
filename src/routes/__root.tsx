@@ -8,32 +8,16 @@ export const Route = createRootRoute({
 })
 
 function RootLayout() {
-  return (
-    <>
-      <nav className="site-nav">
-        <Link
-          to="/"
-          activeOptions={{ exact: true }}
-          activeProps={{ className: 'is-active' }}
-        >
-          Home
-        </Link>
-        <Link to="/about" activeProps={{ className: 'is-active' }}>
-          About
-        </Link>
-      </nav>
-      <Outlet />
-    </>
-  )
+  return <Outlet />
 }
 
 function NotFound() {
   return (
-    <section id="center">
+    <main className="not-found">
       <h1>404</h1>
       <p>
-        Essa rota não existe. <Link to="/">Voltar para a home</Link>
+        Essa rota não existe. <Link to="/">Voltar para a página inicial</Link>
       </p>
-    </section>
+    </main>
   )
 }

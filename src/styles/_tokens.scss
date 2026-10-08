@@ -1,12 +1,42 @@
-// Design tokens shared across the app.
-// Partial (leading underscore) so it is never emitted on its own.
-// Imported by name thanks to the `loadPaths` entry in vite.config.ts.
-
 $breakpoints: (
   'md': 1024px,
 ) !default;
 
-$content-width: 1126px !default;
+$content-width: 1440px !default;
 
-$font-sans: system-ui, 'Segoe UI', Roboto, sans-serif !default;
+$font-sans: 'Instrument Sans', system-ui, 'Segoe UI', Roboto, sans-serif !default;
 $font-mono: ui-monospace, Consolas, monospace !default;
+$font-display: 'Robot Reavers', 'Orbitron', sans-serif !default;
+$font-logo: 'Silkscreen', monospace !default;
+$font-nav: 'Montserrat', sans-serif !default;
+$font-button: 'Urbanist', sans-serif !default;
+
+$color-bg: #181815 !default;
+$color-primary: #008a4b !default; // brand green
+$color-secondary: #009dff !default; // blue, end of gradients
+$color-blue-light: #26acff !default; // background glows
+$color-green-mid: #73a951 !default; // mid stop of the stats gradient
+$color-orange: #ec7029 !default;
+$color-orange-dark: #c97240 !default;
+$color-text: #f2f2f2 !default;
+$color-text-muted: rgba(242, 242, 242, 0.61) !default;
+$color-white: #fff !default;
+$color-border: #383838 !default;
+$color-line: rgba(255, 255, 255, 0.14) !default;
+
+$gradient-accent: linear-gradient(
+  165deg,
+  $color-primary 11.6%,
+  $color-secondary 86.4%
+) !default;
+$gradient-stats: linear-gradient(
+  170deg,
+  $color-primary 10.8%,
+  $color-green-mid 36.4%,
+  $color-secondary 97.2%
+) !default;
+$gradient-glass: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 0.08) 1.1%,
+  rgba(153, 153, 153, 0.08) 97.5%
+) !default;
